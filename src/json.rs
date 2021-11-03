@@ -2,7 +2,6 @@ use serde_json::{Value};
 use std::fs;
 
 pub fn read_json_file(filename: String) -> Vec<String> {
-    // --snip--
     println!("In file {}", filename);
 
     let contents = fs::read_to_string(filename)
