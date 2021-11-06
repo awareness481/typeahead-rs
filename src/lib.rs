@@ -13,9 +13,7 @@ pub fn get_results(trie: &SequenceTrie<char, String>) -> Vec<&String> {
     results.values().collect::<Vec<&String>>()
 }
 
-pub fn build_trie() -> SequenceTrie<char, String> {
-    let data = get_data(None);
-
+pub fn build_trie(data: Vec<String>) -> SequenceTrie<char, String> {
     let mut t = create_trie();
 
     for city in data.iter() {
