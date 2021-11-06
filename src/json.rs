@@ -1,11 +1,10 @@
-use serde_json::{Value};
+use serde_json::Value;
 use std::fs;
 
 pub fn read_json_file(filename: String) -> Vec<String> {
     println!("In file {}", filename);
 
-    let contents = fs::read_to_string(filename)
-        .expect("Something went wrong reading the file");
+    let contents = fs::read_to_string(filename).expect("Something went wrong reading the file");
 
     let v: Value = serde_json::from_str(&contents).unwrap();
 

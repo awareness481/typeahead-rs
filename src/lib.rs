@@ -23,7 +23,7 @@ pub fn build_trie(data: Vec<String>) -> SequenceTrie<char, String> {
     t
 }
 
-fn create_trie() -> SequenceTrie<char, String> {
+pub fn create_trie() -> SequenceTrie<char, String> {
     let trie: SequenceTrie<char, String> = SequenceTrie::new();
     trie
 }
