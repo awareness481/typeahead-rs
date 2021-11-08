@@ -3,9 +3,8 @@ use std::io::stdin;
 
 mod json;
 
-pub fn get_results(trie: &SequenceTrie<char, String>) -> Vec<&String> {
-    let mut input = get_input(None).to_lowercase();
-    input.pop();
+pub fn get_results(trie: &SequenceTrie<char, String>, text: String) -> Vec<&String> {
+    let input = text.to_lowercase();
 
     let results = trie
         .get_node(&input.chars().collect::<Vec<char>>())
@@ -46,6 +45,6 @@ pub fn get_input(pre: Option<String>) -> String {
         }
         Err(error) => println!("error: {}", error),
     }
-
+    input.pop();
     input
 }
