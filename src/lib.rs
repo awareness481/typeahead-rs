@@ -45,9 +45,37 @@ pub fn get_input(pre: Option<String>) -> String {
         }
         Err(error) => println!("error: {}", error),
     }
-    let input_length = input.chars().count();
-    if input.chars().nth(input_length - 1).unwrap() == '\n' {
-        input.pop();
+    remove_new_line(input)
+}
+
+fn remove_new_line(input: String) -> String {
+    let mut new_input = input;
+    let input_length = new_input.chars().count();
+    if new_input.chars().nth(input_length - 1).unwrap() == '\n' {
+        new_input.pop();
     }
-    input
+    new_input
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn trie_create_and_find() {
+        let mut trie = create_trie();
+
+        trie.insert(&['a', 't', 'h'], String::from("ath"));
+        assert!(trie.values().count() == 1);
+
+        let find_item = trie.get(&['a', 't', 'h']).unwrap();
+        assert!(find_item == "ath");
+    }
+
+    #[test]
+    fn input() {
+        let mut text = String::from("hello");
+        assert!(remove_new_line(text) == *"hello");
+        text = String::from("hello\n");
+        assert!(remove_new_line(text) == *"hello");
+    }
 }
