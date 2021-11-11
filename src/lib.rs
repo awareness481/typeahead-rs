@@ -45,6 +45,9 @@ pub fn get_input(pre: Option<String>) -> String {
         }
         Err(error) => println!("error: {}", error),
     }
-    input.pop();
+    let input_length = input.chars().count();
+    if input.chars().nth(input_length - 1).unwrap() == '\n' {
+        input.pop();
+    }
     input
 }
