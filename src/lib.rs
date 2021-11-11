@@ -74,8 +74,8 @@ mod tests {
     #[test]
     fn input() {
         let mut text = String::from("hello");
-        assert!(remove_new_line(text) == *"hello");
+        assert!(remove_new_line(text) == "hello");
         text = String::from("hello\n");
-        assert!(remove_new_line(text) == *"hello");
+        assert!(remove_new_line(text) == "hello");
     }
 }
